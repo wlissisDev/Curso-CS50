@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+<!--
+    Usado para interagir com usuários recebendo dados, 
+    seja nome ou coisa do tipo
+
+    <input type="submit"> // para indicar que quer enviar as informações
+                          //preechidas
+
+-->    
+
+<form>
+    <input type="text" placeholder="Full Name" name="full_name" id="">
+    <input type="password" name="password_user" placeholder="password">
+    <input type="submit">
+</form>
+
+<!--
+    outra forma de criar inputs com valorez opcionais para o usuário
+    usando o data list com mesmo Id do List do INPUT
+-->
+<div>
+    <input type="text" list="countries" name="countri" placeholder="Country">
+    <datalist id="countries">
+        <option value="Brazil"></option>
+        <option value="EUA"></option>
+        <option value="Argentina"></option>
+</div>
+
+<div>
+    Favorite Color?
+    <input name="color" type="radio" value="Red">Red
+    <input name="color" type="radio" value="Blue">Blue
+</div>
+
+</body>
+</html>
