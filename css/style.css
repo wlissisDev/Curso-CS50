@@ -11,3 +11,10 @@ div {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
+
+/*Specificity
+(ordem de precendência do estilo)
+  1 - inline
+  2 - #id
+  3 - .class
+  4 - type*/
