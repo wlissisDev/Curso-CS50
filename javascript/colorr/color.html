@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color</title>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('#red').onclick = function() {
-                document.querySelector('#hello').style.color = 'red';
-            }
-            document.querySelector('#blue').onclick = function() {
-                document.querySelector('#hello').style.color = 'blue';
-            }
-            document.querySelector('#green').onclick = function() {
-                document.querySelector('#hello').style.color = 'green';
-            }
-        })
+
+        document.addEventListener('DOMContentLoaded', function () {
+            //para cada elemento, executar uma função que recebe um button como parametro
+            document.querySelectorAll('button').forEach(function (button) {
+                //executar uma função apos o click
+                button.onclick = function() {
+                    //acessando o data-color de cada button com o dataset.color
+                    document.querySelector('#hello').style.color = button.dataset.color;
+                }
+           });
+        });
+
     </script>
 </head>
+
 <body>
     <h1 id="hello">Hello</h1>
-    <button id="red">Red</button>
-    <button id="blue">Blue</button>
-    <button id="green">Green</button>
+    <button data-color="red">Red</button>
+    <button data-color="blue">Blue</button>
+    <button data-color="green">Green</button>
 </body>
+
 </html>
