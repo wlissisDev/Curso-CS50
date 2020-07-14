@@ -7,11 +7,11 @@
     <title>Color</title>
     <script>
 
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded',  () => {
             //para cada elemento, executar uma função que recebe um button como parametro
-            document.querySelectorAll('button').forEach(function (button) {
+            document.querySelectorAll('button').forEach( button => {
                 //executar uma função apos o click
-                button.onclick = function() {
+                button.onclick = () => {
                     //acessando o data-color de cada button com o dataset.color
                     document.querySelector('#hello').style.color = button.dataset.color;
                 }
