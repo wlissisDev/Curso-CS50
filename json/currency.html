@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.querySelector('form').onsubmit = function () {
+
+
+                fetch('https://api.exchangeratesapi.io/latest?base=USD')
+                    .then(response => response.json())
+                    .then(data => {
+                        //upperCase caso eu digite em minúsculo, para nao gerar erros
+                        const currency = document.querySelector('#currency').value.toUpperCase();
+
+                        //colocando o valor da moeda em colchetes é equivalente a rates.EUR por exemplo
+                        const rate = data.rates[currency];
+
+                        if (rate !== undefined) {
+                            document.querySelector('#result').innerHTML = ` Um USD equivale a ${rate.toFixed(2)} ${currency}.`;
+                        } else {
+                            document.querySelector('#result').innerHTML = `Moeda invalida.`
+                        }
+
+                    })
+                    //caso a API dê algum erro na requisição
+                    //captura o Error e executa algo
+                    .catch(error => {
+                        console.log('Error', error)
+                    });
+
+                //false para nao eviar o form para outra pagina. Executar tudo localmente
+                return false
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="currency" placeholder="Currency">
+        <input type="submit" value="Convert">
+    </form>
+    <div id="result">
+
+    </div>
+
+</body>
+
+</html>
